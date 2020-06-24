@@ -1,8 +1,7 @@
-#function git() {
-    git add .
-    git commit -m 'daily_commit'
-    git push
-    git status
-#}
+clear
+git add .
+git commit -m 'little web'
+git push
 
-#git
+sleep 5
+git status
