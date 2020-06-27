@@ -1,6 +1,6 @@
 clear
 git add .
-git commit -m 'channel'
+git commit -m 'bidirectional channel'
 git push
 
 sleep 5
