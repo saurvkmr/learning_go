@@ -1,6 +1,6 @@
 clear
 git add .
-git commit -m 'little web'
+git commit -m 'channel'
 git push
 
 sleep 5
