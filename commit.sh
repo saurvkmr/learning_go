@@ -1,7 +1,7 @@
 clear
 sleep 2
 git add .
-git commit -m 'calculate prime with bidirectional channel'
+git commit -m 'json parsing'
 git push
 
 sleep 5
