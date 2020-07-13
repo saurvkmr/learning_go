@@ -1,7 +1,7 @@
 clear
 sleep 2
 git add .
-git commit -m 'json parsing'
+git commit -m 'walmart training'
 git push
 
 sleep 5
