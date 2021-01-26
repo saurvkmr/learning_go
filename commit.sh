@@ -1,7 +1,7 @@
 clear
 sleep 2
 git add .
-git commit -m 'walmart training math ops'
+git commit -m ''
 git push
 
 sleep 5

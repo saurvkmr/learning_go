@@ -1,5 +1,7 @@
 package main
 
+//https://play.golang.org/p/EYtsbc2niPl
+
 import (
 	"encoding/csv"
 	"fmt"
@@ -45,7 +47,7 @@ func readFile() (record [][]string, err error) {
 
 func calls(offers [][]string) {
 	var nonSfsList strings.Builder
-	strUrl := "http://limo-nsf-app.prod.cp.prod.walmart.com/limo/services/v1/offers/"
+	strUrl := ""
 	anotherChan1 := make(chan bool)
 	anotherChan2 := make(chan bool)
 	anotherChan3 := make(chan bool)
@@ -128,8 +130,9 @@ func calls(offers [][]string) {
 
 }
 
-func makeAsyncRestCall(url string, anotherChan chan bool) {
+// create Transport instead of creating http client multiple times
 	client := &http.Client{}
+func makeAsyncRestCall(url string, anotherChan chan bool) {
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("WM_CONSUMER.ID", "0b02d5f8-93d2-4e22-af26-3a47ecb857b0")
@@ -147,6 +150,7 @@ func makeAsyncRestCall(url string, anotherChan chan bool) {
 		fmt.Println(err.Error())
 		anotherChan <- false
 	} else {
+		defer res.Body.Close()
 		response, errBody := ioutil.ReadAll(res.Body)
 		if errBody == nil {
 			if parseJson(response, errBody, itemLevelSfs) && osnParseJson(response, errBody, osnLevelSfs) {
