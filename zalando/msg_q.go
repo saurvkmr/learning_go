@@ -121,7 +121,7 @@ func doReq(start string, resp chan []byte) {
 		return
 	}
 
-	req.Header.Add("Authorization", "Bearer eyJraWQiOiJwbGF0Zm9ybS1pYW0tdmNlaHloajYiLCJhbGciOiJFUzI1NiJ9.eyJzdWIiOiI5MGVhNDI3Mi1lYzIwLTRhMGUtYTU3NS04NjRjNDA0NjYxOWYiLCJodHRwczovL2lkZW50aXR5LnphbGFuZG8uY29tL3JlYWxtIjoidXNlcnMiLCJodHRwczovL2lkZW50aXR5LnphbGFuZG8uY29tL3Rva2VuIjoiQmVhcmVyIiwiaHR0cHM6Ly9pZGVudGl0eS56YWxhbmRvLmNvbS9tYW5hZ2VkLWlkIjoic2F1a3VtYXIiLCJhenAiOiJ6dG9rZW4iLCJodHRwczovL2lkZW50aXR5LnphbGFuZG8uY29tL2JwIjoiODEwZDFkMDAtNDMxMi00M2U1LWJkMzEtZDgzNzNmZGQyNGM3IiwiYXV0aF90aW1lIjoxNjYxOTQ2NTkyLCJpc3MiOiJodHRwczovL2lkZW50aXR5LnphbGFuZG8uY29tIiwiZXhwIjoxNjYyMTE1NTMzLCJpYXQiOjE2NjIxMDExMjN9.aHMbtIR1YmyaADuceTjQrIJ8S81YPeDO6FjG4d6nVbx00byu1Dm9AVDu5eB29TfS1fAH2B7ew9cxfrGtKXWr5Q")
+	req.Header.Add("Authorization", "Bearer ")
 
 	res, err := client.Do(req)
 	if err != nil {
