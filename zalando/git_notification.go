@@ -8,8 +8,6 @@ import (
 	"net/http"
 )
 
-var httpClient = &http.Client{}
-
 const (
 	Url = "https://chat.google.com"
 )
@@ -66,7 +64,7 @@ func newGitNotificationHandler(sender googleChatNotificationSender) http.Handler
 		var gitNotification GitNotification
 
 		if err := json.NewDecoder(r.Body).Decode(&gitNotification); err != nil {
-			fmt.Println(err)
+			log.Printf("Cannot decode request payload\n")
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
@@ -113,7 +111,7 @@ func newGoogleChatNotificationSender(httpClient http.Client) googleChatNotificat
 
 		defer resp.Body.Close()
 
-		if resp.StatusCode < 200 && resp.StatusCode > 299 {
+		if resp.StatusCode < 200 || resp.StatusCode > 299 {
 			log.Printf("Received non 2XX status code from Google: %d\n", resp.StatusCode)
 		}
 	}
